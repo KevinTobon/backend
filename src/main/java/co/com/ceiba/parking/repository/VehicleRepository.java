@@ -1,13 +1,16 @@
 package co.com.ceiba.parking.repository;
 
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-import co.com.ceiba.parking.model.Vehicle;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface VehicleRepository extends CrudRepository<Vehicle, Long>{
+import co.com.ceiba.parking.entity.VehicleEntity;
 
-	Vehicle findByPlate(String plate);
-	
-	
+@Repository("vehicleRepository")
+public interface VehicleRepository extends JpaRepository<VehicleEntity, String>{
+
+	VehicleEntity findByPlate(String plate);
+	List<VehicleEntity> findByType(String type);
 }
