@@ -20,18 +20,6 @@ public class ValidateDTO {
 
 	}
 
-	public int getCantidadMotos() {
-		return quantityMotorcycle;
-	}
-	public void setCantidadMotos(int cantidadMotos) {
-		this.quantityMotorcycle = cantidadMotos;
-	}
-	public int getCantidadCarros() {
-		return quantityCar;
-	}
-	public void setCantidadCarros(int cantidadCarros) {
-		this.quantityCar = cantidadCarros;
-	}
 
 	public Movement getMovement() {
 		return movement;
@@ -39,6 +27,22 @@ public class ValidateDTO {
 
 	public void setMovement(Movement movement) {
 		this.movement = movement;
+	}
+
+	public int getQuantityMotorcycle() {
+		return quantityMotorcycle;
+	}
+
+	public void setQuantityMotorcycle(int quantityMotorcycle) {
+		this.quantityMotorcycle = quantityMotorcycle;
+	}
+
+	public int getQuantityCar() {
+		return quantityCar;
+	}
+
+	public void setQuantityCar(int quantityCar) {
+		this.quantityCar = quantityCar;
 	}
 	
 	

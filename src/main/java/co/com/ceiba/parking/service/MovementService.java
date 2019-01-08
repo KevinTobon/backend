@@ -10,7 +10,7 @@ public String registerMovement(MovementDTO movement);
 	
 	public int consultQuantityVehicleByType(String typeVehicle);
 	
-	public MovementDTO consultMovementyPlate(String plate);
+	public MovementDTO removeVehicle(String plate);
 
 	public List<MovementDTO> consultMovementActivated();
 }

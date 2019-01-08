@@ -1,7 +1,6 @@
 package co.com.ceiba.parking.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,6 @@ import co.com.ceiba.parking.service.VehicleService;
 public class VehicleController {
 	
 	@Autowired
-	@Qualifier("vehicleService")
 	VehicleService vehicleService;
 	
 	@PostMapping("/enter_vehicles")

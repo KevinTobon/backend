@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "vehicle")
 public class VehicleEntity implements Serializable{
@@ -14,15 +15,18 @@ public class VehicleEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "plate")
+	@Column(name="plate")
 	private String plate;
 	
 	
-	@Column(name = "type")
+	@Column(name="type")
 	private String type;
 	
-	@Column(name = "displacement")
+	@Column(name="displacement")
 	private double displacement;
+	
+	public VehicleEntity() {
+	}
 	
 	public VehicleEntity(String plate, String type, double displacement) {
 		super();
@@ -34,6 +38,18 @@ public class VehicleEntity implements Serializable{
 	public void setPlate(String plate) {
 		this.plate = plate;
 	}
+	
+	public String getPlate() {
+		return plate;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public double getDisplacement() {
 		return displacement;
@@ -41,17 +57,5 @@ public class VehicleEntity implements Serializable{
 
 	public void setDisplacement(double displacement) {
 		this.displacement = displacement;
-	}
-
-	public String getPlate() {
-		return plate;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 }

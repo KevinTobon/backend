@@ -2,6 +2,9 @@ package co.com.ceiba.parking.util;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class TimeMovement {
 
 	public long days;
