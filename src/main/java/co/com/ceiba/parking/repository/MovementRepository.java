@@ -12,19 +12,18 @@ import co.com.ceiba.parking.entity.Movement;
 public interface MovementRepository extends JpaRepository<Movement, Long>{
 
 	@Query(
-			value = "SELECT COUNT(*) FROM Movement m LEFT OUTER JOIN VehicleEntity v ON v.placa = m.plate WHERE v.tipe = ?1 AND m.exitDate IS null",
+			value = "SELECT COUNT(*) FROM Movement m LEFT OUTER JOIN Vehicle v ON v.plate = m.plate WHERE v.type = ?1 AND m.exit_Date IS null",
 			nativeQuery = true)
 	
 	public int consultQuantityVehicleByType(String type);
 	
 	@Query(
-			value = "SELECT * FROM Movement m LEFT OUTER JOIN VehicleEntity v ON v.plate = m.plate WHERE m.plate = ?1",
+			value = "SELECT * FROM Movement m LEFT OUTER JOIN Vehicle v ON v.plate = m.plate WHERE m.plate = ?1",
 			nativeQuery = true)
 	public Movement consultMovementyPlate(String plate);
 	
-	
 	@Query(
-			value = "SELECT * FROM Movement m LEFT OUTER JOIN VehicleEntity v ON v.plate = m.plate WHERE m.exitDate IS null",
+			value = "SELECT * FROM Movement m LEFT OUTER JOIN Vehicle v ON v.plate = m.plate WHERE m.exit_Date IS null",
 			nativeQuery = true)
 	public List<Movement> consultMovementActivated();
 

@@ -9,10 +9,11 @@ public class MovementDTO {
 	private String plate;
 	private double displacement;
 	private LocalDateTime entryDate;
-	private LocalDateTime exitDate;
+	private LocalDateTime exitDate; 
 	private double price;
 	
-	public MovementDTO() {
+	public Long getId() {
+		return id;
 	}
 	
 	public MovementDTO(Long id, String typeVehicle, String plate, double displacement, LocalDateTime entryDate,
@@ -26,11 +27,10 @@ public class MovementDTO {
 		this.exitDate = exitDate;
 		this.price = price;
 	}
-
-	public Long getId() {
-		return id;
+	
+	public MovementDTO() {
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

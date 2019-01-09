@@ -27,8 +27,8 @@ import co.com.ceiba.parking.validation.Validation;
 public class MovementServiceImpl implements MovementService{
 
 	private static final double PRICE_REGISTER_MOVEMENT = 0;
-	private static final String TYPE_VEHICLE_CAR = "CAR";
-	private static final String TIPO_VEHICULO_MOTORCYCLE = "MOTORCYCLE";
+	private static final String TYPE_VEHICLE_CAR = "CARRO";
+	private static final String TIPO_VEHICULO_MOTORCYCLE = "MOTO";
 	
 	
 	@Autowired
@@ -80,7 +80,7 @@ public class MovementServiceImpl implements MovementService{
 		}
 		
 		Movement movement = mapDTO.convertMovementDTO(movementDTO);
-		vehicleRepository.save(movement.getVehicleEntity());
+		vehicleRepository.save(movement.getVehicle());
 		return movementRepository.save(movement).getId().toString();
 	}
 
@@ -96,7 +96,7 @@ public class MovementServiceImpl implements MovementService{
 		
 		timeMovement.calculateVehicleTime(Timestamp.valueOf(movement.getEntryDate()), Timestamp.valueOf(movement.getExitDate()));
 		
-		if(movement.getVehicleEntity().getType().equals(TYPE_VEHICLE_CAR)) {
+		if(movement.getVehicle().getType().equals(TYPE_VEHICLE_CAR)) {
 			paymentTypeCar.payment(timeMovement, movement);
 		} else {
 			paymentTypeMotorcycle.payment(timeMovement, movement);

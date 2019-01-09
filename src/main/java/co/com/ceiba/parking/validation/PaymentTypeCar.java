@@ -8,18 +8,18 @@ import co.com.ceiba.parking.util.TimeMovement;
 @Component
 public class PaymentTypeCar implements PaymentVehicle{
 
-	private static final double PRECIO_REGISTRO_FACTURA = 0;
-	private static final double PRECIO_DIA_CARRO = 8000;
-	private static final double LIMITE_HORAS_COBRO_DIA = 9;
-	private static final double PRECIO_HORA_CARRO = 1000;
+	private static final double PRICE_REGISTRY_MOVEMENT = 0;
+	private static final double PRYCE_DAY_CAR = 8000;
+	private static final double LIMIT_HOURS_PAYMENT_DAY = 9;
+	private static final double PRICE_HOURS_CAR = 1000;
 	
 	
 	@Override
 	public void payment(TimeMovement timeMovement, Movement movement) {
-		double price = PRECIO_REGISTRO_FACTURA;
+		double price = PRICE_REGISTRY_MOVEMENT;
 		
-		price += PRECIO_DIA_CARRO * timeMovement.days;
-		price += (timeMovement.hours >= LIMITE_HORAS_COBRO_DIA ? PRECIO_DIA_CARRO : PRECIO_HORA_CARRO * timeMovement.hours);
+		price += PRYCE_DAY_CAR * timeMovement.days;
+		price += (timeMovement.hours >= LIMIT_HOURS_PAYMENT_DAY ? PRYCE_DAY_CAR : PRICE_HOURS_CAR * timeMovement.hours);
 		
 		movement.setPrice(price);
 	}

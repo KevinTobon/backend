@@ -20,7 +20,6 @@ public class ValidateDTO {
 
 	}
 
-
 	public Movement getMovement() {
 		return movement;
 	}

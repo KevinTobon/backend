@@ -1,9 +1,8 @@
 package co.com.ceiba.parking.service;
 
-import co.com.ceiba.parking.entity.VehicleEntity;
-
+import co.com.ceiba.parking.entity.Vehicle;
 
 public interface VehicleService {
 
-	public void registerVehicle(VehicleEntity vehicleEntity);
+	public void registerVehicle(Vehicle vehicle);
 }

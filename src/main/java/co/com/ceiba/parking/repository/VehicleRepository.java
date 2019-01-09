@@ -1,16 +1,15 @@
 package co.com.ceiba.parking.repository;
 
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import co.com.ceiba.parking.entity.VehicleEntity;
+import co.com.ceiba.parking.entity.Vehicle;
 
 @Repository("vehicleRepository")
-public interface VehicleRepository extends JpaRepository<VehicleEntity, String>{
+public interface VehicleRepository extends JpaRepository<Vehicle, String>{
 
-	VehicleEntity findByPlate(String plate);
-	List<VehicleEntity> findByType(String type);
+	Vehicle findByPlate(String plate);
+	List<Vehicle> findByType(String type);
 }

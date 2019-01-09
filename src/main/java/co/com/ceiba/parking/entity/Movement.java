@@ -22,7 +22,7 @@ public class Movement implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "plate")
-	private VehicleEntity vehicleEntity;
+	private Vehicle vehicle;
 	
 	@Column(name = "entryDate")
 	private LocalDateTime entryDate;
@@ -36,11 +36,11 @@ public class Movement implements Serializable{
 	public Movement() {
 	}
 	
-	public Movement(Long id, VehicleEntity vehicleEntity, LocalDateTime entryDate, LocalDateTime exitDate,
+	public Movement(Long id, Vehicle vehicle, LocalDateTime entryDate, LocalDateTime exitDate,
 			double price) {
 		super();
 		this.id = id;
-		this.vehicleEntity = vehicleEntity;
+		this.vehicle = vehicle;
 		this.entryDate = entryDate;
 		this.exitDate = exitDate;
 		this.price = price;
@@ -54,12 +54,12 @@ public class Movement implements Serializable{
 		this.id = id;
 	}
 
-	public VehicleEntity getVehicleEntity() {
-		return vehicleEntity;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setVehicleEntity(VehicleEntity vehicleEntity) {
-		this.vehicleEntity = vehicleEntity;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
 	public LocalDateTime getEntryDate() {

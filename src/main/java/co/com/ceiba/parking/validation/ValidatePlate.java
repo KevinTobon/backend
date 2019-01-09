@@ -13,8 +13,9 @@ import co.com.ceiba.parking.exception.ParkingException;
 @Component
 public class ValidatePlate implements Validation{
 	
-	private static final String VEHICLE_ACTIVE_EXCEPTION= "You do not have permission to enter this";
+	private static final String PLATE_INVALID_EXCEPTION= "No tiene permisos para ingresar este día";
 	private static final String[] PLATE_INVALID = {"A"};
+	private static final String VEHICLE_ACTIVE_EXCEPTION = "Esta placa se encuentra activa en el parqueadero";
 
 	@Override
 	public void validate(MovementDTO movementDTO, ValidateDTO validateDTO) throws ParkingException {
@@ -27,7 +28,7 @@ public class ValidatePlate implements Validation{
 			
 			if(!(isMonday || isSunday)) {
 				if(movementDTO.getPlate().toUpperCase().startsWith(plateInvalid)) {
-					throw new ParkingException(VEHICLE_ACTIVE_EXCEPTION);
+					throw new ParkingException(PLATE_INVALID_EXCEPTION);
 				}
 			}
 		}
@@ -43,7 +44,5 @@ public class ValidatePlate implements Validation{
 		} else {
 			movementDTO.setId(new Random().nextLong());
 		}
-	
 	}
-
 }

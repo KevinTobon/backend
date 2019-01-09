@@ -9,24 +9,24 @@ import co.com.ceiba.parking.exception.ParkingException;
 @Component
 public class ValidateQuantityVehicles implements Validation{
 
-	private static final String TIPO_VEHICULO_CARRO = "CAR";
-	private static final double CANTIDAD_MAXIMA_CARROS = 20;
-	private static final double CANTIDAD_MAXIMA_MOTOS = 10;
-	private static final String CAPACIDAD_MAXIMA_CARROS_EXCEPTION = "No hay suficientes espacios para carros disponibles";
-	private static final String CAPACIDAD_MAXIMA_MOTOS_EXCEPTION = "No hay suficientes espacios para motos disponibles";
-	private static final String TIPO_VEHICULO_MOTO = "MOTORCYCLE";
+	private static final String TYPE_VEHICLE_CAR = "CARRO";
+	private static final double CAPACITY_MAXIMUM_CARS = 20;
+	private static final double CAPACITY_MAXIMUM_MOTORCYCLES = 10;
+	private static final String CAPACITY_MAXIMUM_CARS_EXCEPTION = "No hay suficientes espacios para carros disponibles";
+	private static final String CAPACITY_MAXIMUM_MOTORCYCLES_EXCEPTION = "No hay suficientes espacios para motos disponibles";
+	private static final String TYPE_VEHICLE_MOTORCYCLE = "MOTO";
 	
 	@Override
 	public void validate(MovementDTO movementDTO, ValidateDTO validateDTO) throws ParkingException {
 		
-		if(movementDTO.getTypeVehicle().equals(TIPO_VEHICULO_CARRO) && 
-				validateDTO.getQuantityCar() >= CANTIDAD_MAXIMA_CARROS) {
-			throw new ParkingException(CAPACIDAD_MAXIMA_CARROS_EXCEPTION);
+		if(movementDTO.getTypeVehicle().equals(TYPE_VEHICLE_CAR) && 
+				validateDTO.getQuantityCar() >= CAPACITY_MAXIMUM_CARS) {
+			throw new ParkingException(CAPACITY_MAXIMUM_CARS_EXCEPTION);
 		}
 		
-		if(movementDTO.getTypeVehicle().equals(TIPO_VEHICULO_MOTO) && 
-				validateDTO.getQuantityMotorcycle() >= CANTIDAD_MAXIMA_MOTOS) {
-			throw new ParkingException(CAPACIDAD_MAXIMA_MOTOS_EXCEPTION);
+		if(movementDTO.getTypeVehicle().equals(TYPE_VEHICLE_MOTORCYCLE) && 
+				validateDTO.getQuantityMotorcycle() >= CAPACITY_MAXIMUM_MOTORCYCLES) {
+			throw new ParkingException(CAPACITY_MAXIMUM_MOTORCYCLES_EXCEPTION);
 		}		
 		
 	}

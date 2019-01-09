@@ -6,7 +6,7 @@ import co.com.ceiba.parking.dto.MovementDTO;
 
 public interface MovementService {
 
-public String registerMovement(MovementDTO movement);
+	public String registerMovement(MovementDTO movement);
 	
 	public int consultQuantityVehicleByType(String typeVehicle);
 	

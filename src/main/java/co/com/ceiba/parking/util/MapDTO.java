@@ -2,7 +2,7 @@ package co.com.ceiba.parking.util;
 
 import co.com.ceiba.parking.dto.MovementDTO;
 import co.com.ceiba.parking.entity.Movement;
-import co.com.ceiba.parking.entity.VehicleEntity;
+import co.com.ceiba.parking.entity.Vehicle;
 
 public class MapDTO {
 
@@ -12,7 +12,8 @@ public class MapDTO {
 		movement.setEntryDate(movementDTO.getEntryDate());
 		movement.setExitDate(movementDTO.getExitDate());
 		movement.setPrice(movementDTO.getPrice());
-		movement.setVehicleEntity(new VehicleEntity(movementDTO.getPlate(), movementDTO.getTypeVehicle(), movementDTO.getDisplacement()));
+		movement.setVehicle(new Vehicle(movementDTO.getPlate(), movementDTO.getTypeVehicle(), movementDTO.getDisplacement()));
+		
 		return movement;
 	}
 	
@@ -20,11 +21,11 @@ public class MapDTO {
 		MovementDTO movementDTO = new MovementDTO();
 		movementDTO.setId(movement.getId());
 		movementDTO.setPrice(movement.getPrice());
-		movementDTO.setDisplacement(movement.getVehicleEntity().getDisplacement());
+		movementDTO.setDisplacement(movement.getVehicle().getDisplacement());
 		movementDTO.setEntryDate(movement.getEntryDate());
 		movementDTO.setExitDate(movement.getExitDate());
-		movementDTO.setPlate(movement.getVehicleEntity().getPlate());
-		movementDTO.setTypeVehicle(movement.getVehicleEntity().getType());
+		movementDTO.setPlate(movement.getVehicle().getPlate());
+		movementDTO.setTypeVehicle(movement.getVehicle().getType());
 		
 		return movementDTO;
 	}

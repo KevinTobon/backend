@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.com.ceiba.parking.entity.VehicleEntity;
+import co.com.ceiba.parking.entity.Vehicle;
 import co.com.ceiba.parking.service.VehicleService;
 
 @RestController
@@ -17,8 +17,8 @@ public class VehicleController {
 	VehicleService vehicleService;
 	
 	@PostMapping("/enter_vehicles")
-	public String enterVehicle(@RequestBody VehicleEntity vehicleEntity) {
-		vehicleService.registerVehicle(vehicleEntity);
-		return vehicleEntity.getPlate();
+	public String enterVehicle(@RequestBody Vehicle vehicle) {
+		vehicleService.registerVehicle(vehicle);
+		return vehicle.getPlate();
 	}
 }
