@@ -16,6 +16,9 @@ import co.com.ceiba.parking.util.MovementTestDataBuilder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class VehicleControllerTest {
+	
+	private static final String TYPE_VEHICLE_CAR = "CARRO";
+	private static final int QUANTITY_MAX_CARS = 20;
 
 	@InjectMocks
 	MovementController movementController;
@@ -36,4 +39,18 @@ public class VehicleControllerTest {
 		//Assert
 		assertEquals(result, movementDTO.getId().toString());
 	}
+	
+	@Test
+	public void callServiceByConsultQuantityVehicles() {
+		
+		//Arrange
+		when(movementService.consultQuantityVehicleByType(TYPE_VEHICLE_CAR)).thenReturn(QUANTITY_MAX_CARS);
+		
+		//Act
+		int result = movementController.consultQuantity(TYPE_VEHICLE_CAR);
+		//Assert
+		assertEquals(result, 20);
+	}
+	
+	
 }
