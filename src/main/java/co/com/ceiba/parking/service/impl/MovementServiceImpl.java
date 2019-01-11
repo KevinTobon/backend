@@ -14,6 +14,7 @@ import co.com.ceiba.parking.entity.Movement;
 import co.com.ceiba.parking.repository.MovementRepository;
 import co.com.ceiba.parking.repository.VehicleRepository;
 import co.com.ceiba.parking.service.MovementService;
+import co.com.ceiba.parking.util.Constants;
 import co.com.ceiba.parking.util.MapDTO;
 import co.com.ceiba.parking.util.TimeMovement;
 import co.com.ceiba.parking.validation.PaymentTypeCar;
@@ -27,9 +28,6 @@ import co.com.ceiba.parking.validation.Validation;
 public class MovementServiceImpl implements MovementService{
 
 	private static final double PRICE_REGISTER_MOVEMENT = 0;
-	private static final String TYPE_VEHICLE_CAR = "CARRO";
-	private static final String TIPO_VEHICULO_MOTORCYCLE = "MOTO";
-	
 	
 	@Autowired
 	MovementRepository movementRepository;
@@ -71,8 +69,8 @@ public class MovementServiceImpl implements MovementService{
 		validationsMovement.add(validateQuantityVehicles);
 		
 		ValidateDTO validateDTO = new ValidateDTO();
-		validateDTO.setQuantityCar(movementRepository.consultQuantityVehicleByType(TYPE_VEHICLE_CAR));
-		validateDTO.setQuantityMotorcycle(movementRepository.consultQuantityVehicleByType(TIPO_VEHICULO_MOTORCYCLE));
+		validateDTO.setQuantityCar(movementRepository.consultQuantityVehicleByType(Constants.TYPE_VEHICLE_CAR));
+		validateDTO.setQuantityMotorcycle(movementRepository.consultQuantityVehicleByType(Constants.TYPE_VEHICLE_MOTORCYCLE));
 		validateDTO.setMovement(movementRepository.consultMovementyPlate(movementDTO.getPlate()));
 		
 		for(Validation validation: validationsMovement) {
@@ -96,7 +94,7 @@ public class MovementServiceImpl implements MovementService{
 		
 		timeMovement.calculateVehicleTime(Timestamp.valueOf(movement.getEntryDate()), Timestamp.valueOf(movement.getExitDate()));
 		
-		if(movement.getVehicle().getType().equals(TYPE_VEHICLE_CAR)) {
+		if(movement.getVehicle().getType().equals(Constants.TYPE_VEHICLE_CAR)) {
 			paymentTypeCar.payment(timeMovement, movement);
 		} else {
 			paymentTypeMotorcycle.payment(timeMovement, movement);
