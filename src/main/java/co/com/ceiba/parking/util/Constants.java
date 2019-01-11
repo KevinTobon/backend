@@ -1,5 +1,7 @@
 package co.com.ceiba.parking.util;
 
+import java.time.LocalDateTime;
+
 public class Constants {
 
 	private Constants() {
@@ -17,6 +19,8 @@ public class Constants {
 	//tests unit
 	public static final String PLATE_VEHICLE_MOTORCYCLE = "GPZ06E";
 	public static final String PLATE_VEHICLE_CAR = "FUM78B";
-	public static final int CAPACITY_CARS_LESS = 10; 
+	public static final int CAPACITY_CARS_LESS = 10;
+	public static final int CAPACITY_MOTORCYCLE_LESS = 9;
+	public static final LocalDateTime ENTRY_DATE_TEST = LocalDateTime.of(2018, 12, 1, 8, 20);
 	
 }
