@@ -16,5 +16,6 @@ public class Constants {
 	
 	//tests unit
 	public static final String PLATE_VEHICLE_CAR = "FUM78B";
+	public static final int CAPACITY_CARS_LESS = 10; 
 	
 }

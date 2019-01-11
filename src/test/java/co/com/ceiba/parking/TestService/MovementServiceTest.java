@@ -1,6 +1,7 @@
 package co.com.ceiba.parking.TestService;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
@@ -74,5 +75,31 @@ public class MovementServiceTest {
 		assertEquals(result, movementDto.getId().toString());
 	}
 	
+	@Test
+	public void consultQuantityVehicles() {
+		
+		//Arrange
+		when(movementService.consultQuantityVehicleByType(Constants.TYPE_VEHICLE_CAR)).thenReturn(Constants.CAPACITY_CARS_LESS);
+		
+		//Act
+		int quantity = movementService.consultQuantityVehicleByType(Constants.TYPE_VEHICLE_CAR);
+		
+		//Assert
+		assertEquals(quantity, 10);
+	}
+	
+	@Test
+	public void removeVehicleCar() {
+		MovementDTO movementDto = new MovementTestDataBuilder().build();
+		Movement movement = mapDTO.convertMovementDTO(movementDto);
+		
+		when(movementRepository.consultMovementyPlate(Constants.PLATE_VEHICLE_CAR)).thenReturn(movement);
+		timeMovement.days = 10;
+		timeMovement.hours = 2;
+		
+		MovementDTO result = movementService.removeVehicle(Constants.PLATE_VEHICLE_CAR);
+		
+		assertTrue(result.getExitDate() != null);
+	}
 	
 }
