@@ -15,6 +15,7 @@ public class Constants {
 	public static final double CAPACITY_MAXIMUM_MOTORCYCLES = 10;
 	
 	//tests unit
+	public static final String PLATE_VEHICLE_MOTORCYCLE = "GPZ06E";
 	public static final String PLATE_VEHICLE_CAR = "FUM78B";
 	public static final int CAPACITY_CARS_LESS = 10; 
 	

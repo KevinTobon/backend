@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -90,6 +93,7 @@ public class MovementServiceTest {
 	
 	@Test
 	public void removeVehicleCar() {
+		//Arrange
 		MovementDTO movementDto = new MovementTestDataBuilder().build();
 		Movement movement = mapDTO.convertMovementDTO(movementDto);
 		
@@ -102,4 +106,39 @@ public class MovementServiceTest {
 		assertTrue(result.getExitDate() != null);
 	}
 	
+	@Test
+	public void removeVhicleMotorcycle() {
+		
+		//Arrange
+		MovementDTO movementDto = new MovementTestDataBuilder().build();
+		Movement movement = mapDTO.convertMovementDTO(movementDto);
+		
+		when(movementRepository.consultMovementyPlate(Constants.PLATE_VEHICLE_MOTORCYCLE)).thenReturn(movement);
+		timeMovement.days = 10;
+		timeMovement.hours = 2;
+
+		MovementDTO result = movementService.removeVehicle(Constants.PLATE_VEHICLE_MOTORCYCLE);
+
+		assertTrue(result.getExitDate() != null);
+	}
+	
+	private List<Movement> createListMovement(){
+		List<Movement> createListMovement = new ArrayList<>();
+		createListMovement.add(mapDTO.convertMovementDTO(new MovementTestDataBuilder().build()));
+		createListMovement.add(mapDTO.convertMovementDTO(new MovementTestDataBuilder().byPlate(Constants.PLATE_VEHICLE_CAR).build()));
+		
+		return createListMovement;
+	}
+	
+	@Test
+	public void returnListMovementActives() {
+		//Arrange
+		List<Movement> listMovementActive = createListMovement();
+		
+		when(movementRepository.consultMovementActivated()).thenReturn(listMovementActive);
+		
+		List<MovementDTO> result = movementService.consultMovementActivated();
+		
+		assertEquals(result.size(), listMovementActive.size());
+	}
 }
