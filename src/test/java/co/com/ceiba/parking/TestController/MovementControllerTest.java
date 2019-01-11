@@ -15,14 +15,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 import co.com.ceiba.parking.dto.MovementDTO;
 import co.com.ceiba.parking.rest.MovementController;
 import co.com.ceiba.parking.service.MovementService;
+import co.com.ceiba.parking.util.Constants;
 import co.com.ceiba.parking.util.MovementTestDataBuilder;
 
 @RunWith(MockitoJUnitRunner.class)
-public class VehicleControllerTest {
-	
-	private static final String TYPE_VEHICLE_CAR = "CARRO";
-	private static final int QUANTITY_MAX_CARS = 20;
-	private static final String PLATE_VEHICLE_CAR = "FUM78B";
+public class MovementControllerTest {
 
 	@InjectMocks
 	MovementController movementController;
@@ -48,10 +45,10 @@ public class VehicleControllerTest {
 	public void callServiceByConsultQuantityVehicles() {
 		
 		//Arrange
-		when(movementService.consultQuantityVehicleByType(TYPE_VEHICLE_CAR)).thenReturn(QUANTITY_MAX_CARS);
+		when(movementService.consultQuantityVehicleByType(Constants.TYPE_VEHICLE_CAR)).thenReturn(Constants.CAPACITY_MAXIMUM_CARS);
 		
 		//Act
-		int result = movementController.consultQuantity(TYPE_VEHICLE_CAR);
+		int result = movementController.consultQuantity(Constants.TYPE_VEHICLE_CAR);
 		//Assert
 		assertEquals(result, 20);
 	}
@@ -61,10 +58,10 @@ public class VehicleControllerTest {
 		
 		//Arrange
 		MovementDTO movementDto = new MovementTestDataBuilder().build();
-		when(movementService.removeVehicle(PLATE_VEHICLE_CAR)).thenReturn(movementDto);
+		when(movementService.removeVehicle(Constants.PLATE_VEHICLE_CAR)).thenReturn(movementDto);
 		
 		//Act
-		MovementDTO result = movementController.removeVehicle(PLATE_VEHICLE_CAR);
+		MovementDTO result = movementController.removeVehicle(Constants.PLATE_VEHICLE_CAR);
 		
 		//Assert
 		assertEquals(result, movementDto);
@@ -73,7 +70,7 @@ public class VehicleControllerTest {
 	private List<MovementDTO> createListMovement(){
 		List<MovementDTO> ToListMovementAssets = new ArrayList<>();
 		ToListMovementAssets.add(new MovementTestDataBuilder().build());
-		ToListMovementAssets.add(new MovementTestDataBuilder().byPlate(PLATE_VEHICLE_CAR).build());
+		ToListMovementAssets.add(new MovementTestDataBuilder().byPlate(Constants.PLATE_VEHICLE_CAR).build());
 		
 		return ToListMovementAssets;
 	}
@@ -91,5 +88,4 @@ public class VehicleControllerTest {
 		//Assert
 		assertEquals(result, ToListMovementAssets);
 	}
-	
 }

@@ -6,9 +6,7 @@ import co.com.ceiba.parking.dto.MovementDTO;
 
 public class MovementTestDataBuilder {
 	
-	private static final String PLATE_VEHICLE_CAR = "FUM78B";
-	private static final String TYPE_VEHICLE_CAR = "CARRO";
-	private static final String TYPE_VEHICLE_MOTORCYCLE = "MOTO";
+	
 
 	private Long id;
 	private String plate;
@@ -20,8 +18,8 @@ public class MovementTestDataBuilder {
 	
 	public MovementTestDataBuilder() {
 		this.id = new Long(0);
-		this.plate = PLATE_VEHICLE_CAR;
-		this.type = TYPE_VEHICLE_CAR;
+		this.plate = Constants.PLATE_VEHICLE_CAR;
+		this.type = Constants.TYPE_VEHICLE_CAR;
 		this.displacement = 0;
 		this.entryDate = LocalDateTime.now();
 		this.exitDate = null;
@@ -41,7 +39,7 @@ public class MovementTestDataBuilder {
 	
 	public MovementTestDataBuilder byDisplacement(double displacement) {
 		this.displacement = displacement;
-		this.type = TYPE_VEHICLE_MOTORCYCLE;
+		this.type = Constants.TYPE_VEHICLE_MOTORCYCLE;
 		return this;
 	}
 	
