@@ -21,6 +21,7 @@ public class Constants {
 	public static final String PLATE_VEHICLE_CAR = "FUM78B";
 	public static final int CAPACITY_CARS_LESS = 10;
 	public static final int CAPACITY_MOTORCYCLE_LESS = 9;
+	public static final TimeMovement TIME_MOVEMENT_TEST = new TimeMovement(11, 2, 10, 0);
 	public static final LocalDateTime DATE_NOT_PERMITTED_MONDAY_PLATE_A = LocalDateTime.of(2018, 12, 12, 8, 28);
 	public static final LocalDateTime DATE_PERMITTED_MONDAY_PLATE_A = LocalDateTime.of(2018, 12, 17, 8, 28);
 	public static final LocalDateTime DATE_PERMITTED_SUNDAY_PLATE_A = LocalDateTime.of(2018, 12, 16, 8, 28);
