@@ -36,7 +36,7 @@ public class TimeVehicleTest {
 		
 		assertEquals(12, timeMovement.days);
 		assertEquals(3, timeMovement.hours);
-		assertEquals(42, timeMovement.minutes);
+		assertEquals(41, timeMovement.minutes);
 		assertEquals(1, timeMovement.seconds);
 	}
 	
@@ -45,9 +45,9 @@ public class TimeVehicleTest {
 		
 		timeMovement.calculateVehicleTime(Timestamp.valueOf(Constants.ENTRY_DATE_TEST), Timestamp.valueOf(Constants.EXIT_DATE_TEST_MINUTES));
 		
-		assertEquals(10, timeMovement.days);
-		assertEquals(24, timeMovement.hours);
-		assertEquals(60, timeMovement.minutes);
+		assertEquals(11, timeMovement.days);
+		assertEquals(1, timeMovement.hours);
+		assertEquals(1, timeMovement.minutes);
 		assertEquals(10, timeMovement.seconds);
 	}
 	
@@ -57,8 +57,8 @@ public class TimeVehicleTest {
 		timeMovement.calculateVehicleTime(Timestamp.valueOf(Constants.ENTRY_DATE_TEST), Timestamp.valueOf(Constants.EXIT_DATE_TEST_HOURS));
 		
 		assertEquals(11, timeMovement.days);
-		assertEquals(4, timeMovement.hours);
-		assertEquals(1, timeMovement.minutes);
+		assertEquals(3, timeMovement.hours);
+		assertEquals(0, timeMovement.minutes);
 		assertEquals(0, timeMovement.seconds);
 	}
 }
