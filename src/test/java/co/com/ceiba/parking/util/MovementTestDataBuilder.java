@@ -43,7 +43,7 @@ public class MovementTestDataBuilder {
 		return this;
 	}
 	
-	public MovementTestDataBuilder byPlateAndFecha(String plate, LocalDateTime date) {
+	public MovementTestDataBuilder byPlateAndDate(String plate, LocalDateTime date) {
 		this.plate = plate;
 		this.entryDate = date;
 		return this;

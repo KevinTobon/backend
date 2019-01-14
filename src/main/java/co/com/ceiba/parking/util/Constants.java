@@ -22,5 +22,9 @@ public class Constants {
 	public static final int CAPACITY_CARS_LESS = 10;
 	public static final int CAPACITY_MOTORCYCLE_LESS = 9;
 	public static final LocalDateTime ENTRY_DATE_TEST = LocalDateTime.of(2018, 12, 1, 8, 20);
+	public static final LocalDateTime DATE_NOT_PERMITTED_MONDAY_PLATE_A = LocalDateTime.of(2018, 12, 12, 8, 28);
+	public static final LocalDateTime DATE_PERMITTED_MONDAY_PLATE_A = LocalDateTime.of(2018, 12, 17, 8, 28);
+	public static final LocalDateTime DATE_PERMITTED_SUNDAY_PLATE_A = LocalDateTime.of(2018, 12, 16, 8, 28);
+
 	
 }
