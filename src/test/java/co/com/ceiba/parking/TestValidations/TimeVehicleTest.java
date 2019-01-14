@@ -36,8 +36,8 @@ public class TimeVehicleTest {
 		
 		assertEquals(12, timeMovement.days);
 		assertEquals(3, timeMovement.hours);
-		assertEquals(41, timeMovement.minutes);
-		assertEquals(1, timeMovement.seconds);
+		assertEquals(47, timeMovement.minutes);
+		assertEquals(8, timeMovement.seconds);
 	}
 	
 	@Test
